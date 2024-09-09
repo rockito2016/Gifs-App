@@ -1,11 +1,16 @@
 <div class="d-flex justify-content-center">
-  <!--  <img
-  [src]="url"
-  [alt]="alt"
-  class="card-img-top"
-  /> -->
+  <img
+    [src]="url"
+    [alt]="alt"
+    class="card-img-top"
+    (load)="onLoad()"
+    Esta condición hace que si hasLoaded está en true no coloco nada y si está en false ponemos la imagen oculta
+    [ngStyle]="{ display: hasLoaded ? '' : 'none' }"
+
+  />
 
   <img
+    *ngIf="!hasLoaded"
     src="../../../../assets/loader.svg"
     alt="loader"
     height="35"
